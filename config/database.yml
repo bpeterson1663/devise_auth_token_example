@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: SQL_ASCII
+  pool: 5
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  host:     <%= ENV['IP'] %>
+
+development:
+  <<: *default
+  database: rails_devise_auth
+
+test:
+  <<: *default
+  database: test
+
+production:
+  <<: *default
+  database: production
